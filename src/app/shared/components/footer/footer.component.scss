@@ -1,0 +1,31 @@
+@import "src/assets/scss/theme/variables";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+
+  ul {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    line-height: 18px;
+
+    li {
+      color: $primary-color;
+    }
+  }
+
+  .copyright {
+    color: rgba(34, 34, 34, 0.5);;
+  }
+
+  .socials {
+    gap: 20px;
+  }
+
+  .terms {
+    margin-left: 40px;
+  }
+}

@@ -1,0 +1,19 @@
+@import "./reset";
+@import "./theme/variables";
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  padding-top: 100px;
+
+}
+
+main {
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 80px;
+}

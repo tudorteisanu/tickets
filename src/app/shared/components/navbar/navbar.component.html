@@ -1,0 +1,22 @@
+<nav class="navbar">
+  <img
+    class="navbar__logo"
+    ngSrc="assets/icons/logo.svg"
+    alt="logo"
+    width="34"
+    height="30"
+    [routerLink]="homeUrl"
+  >
+
+  <ul class="navbar__links">
+    <li
+      *ngFor="let item of links"
+      [routerLink]="item.url"
+      routerLinkActive="navbar__links--active"
+      [routerLinkActiveOptions]="{exact: true}">
+      {{item.text}}
+    </li>
+  </ul>
+
+  <app-auth-buttons />
+</nav>
