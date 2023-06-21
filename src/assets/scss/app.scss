@@ -11,9 +11,6 @@ body {
 }
 
 main {
-  height: calc(100vh - 100px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 0 80px;
+  height: calc(100vh - 200px);
+  padding: 40px 80px;
 }

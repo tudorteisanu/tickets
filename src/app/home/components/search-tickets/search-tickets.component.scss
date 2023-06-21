@@ -1,3 +1,5 @@
+@import "src/assets/scss/theme/variables";
+
 .search-tickets {
   max-width: 100%;
   width: 100%;
@@ -6,7 +8,7 @@
   &__title {
     font-size: 20px;
     line-height: 24px;
-    color: rgba(34, 34, 34, 0.5);
+    color: $secondary-light-color;
   }
 
   &__inputs {

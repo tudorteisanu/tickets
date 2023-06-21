@@ -6,5 +6,6 @@ export enum PageRoutes {
   SignUp = '/signup',
   LogIn = '/login',
   PrivacyPolicy = '/privacy-policy',
-  TermsAndConditions = '/terms-and-conditions'
+  TermsAndConditions = '/terms-and-conditions',
+  Tickets = '/tickets'
 }
