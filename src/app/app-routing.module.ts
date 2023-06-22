@@ -9,6 +9,14 @@ const routes: Routes = [
   {
     path: 'tickets',
     loadChildren: () => import('src/app/tickets/tickets.module').then(m=> m.TicketsModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('src/app/login/login.module').then(m=> m.LoginModule)
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('src/app/signup/signup.module').then(m=> m.SignupModule)
   }
 ];
 

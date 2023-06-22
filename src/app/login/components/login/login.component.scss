@@ -1,0 +1,64 @@
+@import "src/assets/scss/variables";
+
+.login {
+  height: calc(100vh - 250px);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__container {
+    max-width: 515px;
+    width: 100%;
+    margin: auto;
+  }
+
+  &__title {
+    font-size: 40px;
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    padding-top: 25px;
+    font-size: 20px;
+    color: $secondary-light-color;
+
+    &--link {
+      color: $accent-color;
+    }
+  }
+
+  &__form {
+    margin-top: 50px;
+
+    &--input {
+      margin-top: 15px;
+    }
+
+    &--remember-me {
+      margin-top: 40px;
+      font-size: 20px;
+      color: $secondary-light-color;
+    }
+
+    &--checkbox {
+      margin-right: 15px;
+    }
+
+    &--submit {
+      padding: 15px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: $accent-color;
+      border-radius: 15px;
+      width: 100%;
+      margin-top: 40px;
+      font-size: 20px;
+      font-weight: 600;
+      color: $foreground-color;
+    }
+  }
+
+}

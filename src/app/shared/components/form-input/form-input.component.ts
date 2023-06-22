@@ -13,6 +13,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 export class FormInputComponent {
   @Input() icon: string = '';
   @Input() value: string = '';
+  @Input() label: string = '';
 
   get iconUrl(): string {
     return `assets/icons/${this.icon}.svg`
