@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path: 'contact',
     loadChildren: () => import('src/app/contact/contact.module').then(m=> m.ContactModule)
+  },
+  {
+    path: 'about',
+    loadChildren: () => import('src/app/about/about.module').then(m=> m.AboutModule)
   }
 ];
 

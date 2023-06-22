@@ -1,6 +1,9 @@
+@import "src/assets/scss/variables";
+
 .home-page {
   height: 100%;
   width: 100%;
-  max-width: 100%;
+  max-width: $screen-xl;
+  margin: 0 auto;
   box-sizing: border-box;
 }
