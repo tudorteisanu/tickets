@@ -1,4 +1,4 @@
-@import "../../../../assets/scss/variables";
+@import "src/assets/scss/variables";
 
 .search-tickets {
   max-width: 100%;
@@ -12,9 +12,9 @@
   }
 
   &__inputs {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
   }
 }

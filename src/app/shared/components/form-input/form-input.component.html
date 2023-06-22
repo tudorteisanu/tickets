@@ -1,6 +1,19 @@
-<fieldset class="form-input">
-  <div class="form-input__value">
-    <input type="text" [placeholder]="label" [value]="value">
+<div class="form-input">
+  <div
+    class="form-input__container"
+  >
+    <div class="form-input__wrapper">
+      <input
+        [type]="inputType"
+        #formInput
+        (input)="onChange(formInput.value)"
+        (focus)="onTouched()"
+        [placeholder]="label"
+        [value]="value"
+      />
+    </div>
+    <div *ngIf="icon">
+      <img  [ngSrc]="iconUrl" alt="" width="24" height="24">
+    </div>
   </div>
-    <img *ngIf="icon" [ngSrc]="iconUrl" alt="" width="24" height="24">
-</fieldset>
+</div>

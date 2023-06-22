@@ -14,8 +14,14 @@ export class FormInputComponent {
   @Input() icon: string = '';
   @Input() value: string = '';
   @Input() label: string = '';
+  @Input('type') inputType: string = 'text';
 
   get iconUrl(): string {
     return `assets/icons/${this.icon}.svg`
   }
+
+  onChange(value: string) {
+
+  }
+  onTouched() {}
 }
