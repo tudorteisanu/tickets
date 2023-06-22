@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, computed, Input, Signal, signal, WritableSignal} from '@angular/core';
 
 @Component({
   selector: 'app-accordion-item',
@@ -9,25 +9,25 @@ export class AccordionItemComponent {
   @Input() title: string = '';
   @Input() content: string = '';
 
-  expanded: boolean = false;
+  expanded:  WritableSignal<boolean> = signal(false);
 
-  get headingClass(): string | null {
-    if (this.expanded) {
+  headingClass: Signal<string | null> =  computed(() =>  {
+    if (this.expanded()) {
       return 'accordion-item__white'
     }
 
     return null
-  }
+  })
 
-  get iconClass(): string | null {
-    if (this.expanded) {
+  iconClass: Signal<string | null> =  computed(() =>  {
+    if (this.expanded()) {
       return 'rotate-chevron'
     }
 
     return null
-  }
+  })
 
   toggle():  void {
-    this.expanded = !this.expanded;
+    this.expanded.update((value: boolean) => !value);
   }
 }
