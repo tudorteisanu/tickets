@@ -9,6 +9,7 @@ import { reducers } from './store/reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { SingUpEffect } from './store/effects/signup.effect';
 import { LoginComponent } from './components/login/login.component';
+import { LoginEffect } from './store/effects/login.effect';
 
 const routes: Routes = [
   {
@@ -32,8 +33,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FormInputComponent,
     ReactiveFormsModule,
-    StoreModule.forFeature('singup', reducers),
-    EffectsModule.forFeature([SingUpEffect])
+    StoreModule.forFeature('auth', reducers),
+    EffectsModule.forFeature([SingUpEffect, LoginEffect])
   ]
 })
-export class SignupModule { }
+export class AuthModule { }

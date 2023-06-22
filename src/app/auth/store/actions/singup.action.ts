@@ -1,8 +1,8 @@
 import { createAction, props } from "@ngrx/store";
 import { ActionTypes } from "../actionTypes";
-import { BackendError } from "src/app/shared/types/backendError.interface";
-import { CredentialsInterface } from "src/app/shared/types/credentials.interface";
 import { SignUpInputInterface } from "../../types/signup-request.interface";
+import { CurrentUserInterface } from "src/app/shared/types/currentUser.interface";
+import { BackendError } from "src/app/shared/types/backendError.interface";
 
 export const signupAction = createAction(
   ActionTypes.Signup,
@@ -12,11 +12,11 @@ export const signupAction = createAction(
 
 export const signupSuccessAction = createAction(
   ActionTypes.SignupSuccess,
-  props<{ credentials: CredentialsInterface }>()
+  props<{ currentUser: CurrentUserInterface }>()
 );
 
 
 export const signupFailureAction = createAction(
   ActionTypes.SignupFailure,
-  props<{ error: BackendError | null }>()
+  props<{ errors: BackendError; errorMessage?: string }>()
 );

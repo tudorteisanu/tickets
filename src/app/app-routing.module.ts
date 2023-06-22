@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    loadChildren: () => import('src/app/signup/signup.module').then(m => m.SignupModule)
+    loadChildren: () => import('src/app/auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: 'contact',

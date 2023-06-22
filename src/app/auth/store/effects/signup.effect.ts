@@ -3,7 +3,6 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, of, switchMap, map, tap } from 'rxjs';
 import { signupAction, signupFailureAction, signupSuccessAction } from '../actions/singup.action';
 import { BackendError } from 'src/app/shared/types/backendError.interface';
-import { CredentialsInterface } from 'src/app/shared/types/credentials.interface';
 import { AuthService } from '../../services/auth.service';
 import { PageRoutes } from 'src/app/shared/types/page-routes.enum';
 import { Router } from '@angular/router';
@@ -16,11 +15,11 @@ export class SingUpEffect {
             ofType(signupAction),
             switchMap(({ signUpInput }) => {
                 return this.authService.singup(signUpInput).pipe(
-                    map((credentials: CredentialsInterface) => {
-                        return signupSuccessAction({ credentials });
+                    map((currentUser) => {
+                        return signupSuccessAction({ currentUser });
                     }),
-                    catchError((error: BackendError) => {
-                        return of(signupFailureAction({ error }));
+                    catchError((errors: BackendError) => {
+                        return of(signupFailureAction({ errors }));
                     }),
                 );
             }),

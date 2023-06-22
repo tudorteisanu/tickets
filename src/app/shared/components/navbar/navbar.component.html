@@ -17,6 +17,11 @@
       {{item.text}}
     </li>
   </ul>
-
-  <app-auth-buttons />
+  <div *ngIf="isLoggedIn(); else authButtons">
+      <span>{{ currentUser()?.firstName }}</span>
+      <button (click)="logout()">Logout</button>
+  </div>
+  <ng-template #authButtons>
+    <app-auth-buttons  />
+  </ng-template>
 </nav>

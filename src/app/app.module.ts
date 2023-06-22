@@ -11,6 +11,7 @@ import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
       traceLimit: 75,
     }),
     StoreRouterConnectingModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    AuthModule
   ],
   exports: [RouterModule],
   bootstrap: [AppComponent]
