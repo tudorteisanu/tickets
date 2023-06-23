@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class TicketsSearchResultComponent {
   tickets = [...new Array(9)].map((_, index) => index);
+
+  public trackBy(index: number): number {
+    return index;
+  }
 }

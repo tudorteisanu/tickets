@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
-import {PageRoutes} from "../../types/page-routes.enum";
-import {CommonModule} from "@angular/common";
-import {RouterLink, RouterModule} from "@angular/router";
+import {PageRoutes} from '../../types/page-routes.enum';
+import {CommonModule} from '@angular/common';
+import {RouterLink, RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-auth-buttons',
@@ -12,11 +12,11 @@ import {RouterLink, RouterModule} from "@angular/router";
   imports: [CommonModule, RouterModule]
 })
 export class AuthButtonsComponent {
-  get singUpUrl(): PageRoutes {
-    return PageRoutes.SignUp
+  public get singUpUrl(): PageRoutes {
+    return PageRoutes.SignUp;
   }
 
-  get logIn(): PageRoutes {
-    return PageRoutes.LogIn
+  public get logIn(): PageRoutes {
+    return PageRoutes.LogIn;
   }
 }

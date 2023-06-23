@@ -1,6 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { routerNavigationAction } from '@ngrx/router-store';
-import { AuthStateInterface } from '../types/authState.interface';
+import { AuthStateInterface } from '../types/auth-state.interface';
 import {
   signupAction,
   signupFailureAction,
@@ -71,9 +70,8 @@ const authReducer = createReducer(
     logoutAction,
     (): AuthStateInterface => authInitialState,
   ),
-  // on(routerNavigationAction, (): AuthStateInterface => authInitialState),
 );
 
-export function reducers(state: AuthStateInterface, action: Action) {
+export function reducers(state: AuthStateInterface, action: Action): AuthStateInterface {
   return authReducer(state, action);
 }

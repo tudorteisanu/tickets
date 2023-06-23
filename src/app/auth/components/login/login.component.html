@@ -4,22 +4,41 @@
       Welcome back!
     </h1>
     <p class="login__subtitle">
-    <span>
-       Don’t have an account?
-    </span>
-      <a class="login__subtitle--link" [routerLink]="signUpUrl">Sign up.</a>
+      <span>
+        Don’t have an account?
+      </span>
+      <a
+        class="login__subtitle--link"
+        [routerLink]="signUpUrl"
+      >Sign up.</a>
     </p>
-
-    <form class="login__form" [formGroup]="loginForm" (ngSubmit)="login()">
-      <app-form-input formControlName="email" label="Email address"/>
-      <app-form-input formControlName="password" label="Password" inputType="password"/>
+    <form
+      class="login__form"
+      [formGroup]="loginForm"
+      (ngSubmit)="login()"
+    >
+      <app-form-input
+        formControlName="email"
+        label="Email address"
+      />
+      <app-form-input
+        formControlName="password"
+        label="Password"
+        inputType="password"
+      />
       <div class="login__form--remember-me">
         <fieldset>
-          <input class="login__form--checkbox" type="checkbox">
+          <input
+            class="login__form--checkbox"
+            type="checkbox"
+          >
           <span>Remember me</span>
         </fieldset>
       </div>
-      <button class="login__form--submit" type="submit">Log in</button>
+      <button
+        class="login__form--submit"
+        type="submit"
+      >Log in</button>
     </form>
   </div>
 </section>

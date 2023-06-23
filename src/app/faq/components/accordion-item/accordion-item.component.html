@@ -1,11 +1,26 @@
-<div class="accordion-item" >
-  <div class="accordion-item--heading" (click)="toggle()" [ngClass]="headingClass()">
-        <span>
-          {{title}}
-        </span>
-    <img [ngClass]="iconClass()" ngSrc="assets/icons/chevron-down.png" width="13" height="11" alt="">
+<div class="accordion-item">
+  <div
+    class="accordion-item--heading"
+    [ngClass]="headingClass()"
+    (click)="toggle()"
+  >
+    <span>
+      {{title}}
+    </span>
+    <img
+      ngSrc="assets/icons/chevron-down.png"
+      width="13"
+      height="11"
+      alt=""
+      [ngClass]="iconClass()"
+    >
+    <div>sdf</div>
+    <div>asdfasd</div>
   </div>
-  <div class="accordion-item--content" *ngIf="expanded()">
+  <div
+    *ngIf="expanded()"
+    class="accordion-item--content"
+  >
     {{content}}
   </div>
 </div>

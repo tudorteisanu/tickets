@@ -1,12 +1,12 @@
 import { Component, Signal } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { LinkInterface } from "../../types/link.interface";
-import { PageRoutes } from "../../types/page-routes.enum";
-import { AuthButtonsComponent } from "../auth-buttons/auth-buttons.component";
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { LinkInterface } from '../../types/link.interface';
+import { PageRoutes } from '../../types/page-routes.enum';
+import { AuthButtonsComponent } from '../auth-buttons/auth-buttons.component';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { currentUserSelector, isLoggedInSelector } from 'src/app/auth/store/auth.selectors';
-import { CurrentUserInterface } from '../../types/currentUser.interface';
+import { CurrentUserInterface } from '../../types/current-user.interface';
 import { logoutAction } from 'src/app/auth/store/actions/logout.action';
 
 @Component({
@@ -19,6 +19,7 @@ import { logoutAction } from 'src/app/auth/store/actions/logout.action';
 export class NavbarComponent {
   readonly isLoggedIn: Signal<boolean | null> = this.store.selectSignal(isLoggedInSelector);
   readonly currentUser: Signal<CurrentUserInterface | null> = this.store.selectSignal(currentUserSelector);
+  homeUrl: PageRoutes = PageRoutes.Home;
 
   links: LinkInterface[] = [
     {
@@ -37,15 +38,15 @@ export class NavbarComponent {
       url: PageRoutes.Faq,
       text: 'FAQ'
     },
-  ]
+  ];
 
   constructor(private store: Store) { }
 
-  get homeUrl(): PageRoutes {
-    return PageRoutes.Home
+  public logout(): void {
+    this.store.dispatch(logoutAction());
   }
 
-  logout(): void {
-    this.store.dispatch(logoutAction())
+  public trackByIndex(index: number): number {
+    return index;
   }
 }

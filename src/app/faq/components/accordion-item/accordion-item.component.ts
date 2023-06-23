@@ -6,28 +6,28 @@ import {Component, computed, Input, Signal, signal, WritableSignal} from '@angul
   styleUrls: ['./accordion-item.component.scss']
 })
 export class AccordionItemComponent {
-  @Input() title: string = '';
-  @Input() content: string = '';
+  @Input() title = '';
+  @Input() content = '';
 
   expanded:  WritableSignal<boolean> = signal(false);
 
   headingClass: Signal<string | null> =  computed(() =>  {
     if (this.expanded()) {
-      return 'accordion-item__white'
+      return 'accordion-item__white';
     }
 
-    return null
-  })
+    return null;
+  });
 
   iconClass: Signal<string | null> =  computed(() =>  {
     if (this.expanded()) {
-      return 'rotate-chevron'
+      return 'rotate-chevron';
     }
 
-    return null
-  })
+    return null;
+  });
 
-  toggle():  void {
+  public toggle():  void {
     this.expanded.update((value: boolean) => !value);
   }
 }

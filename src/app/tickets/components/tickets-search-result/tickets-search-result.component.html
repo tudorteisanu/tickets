@@ -1,8 +1,10 @@
 <div class="tickets-search-result">
-
-  <div *ngFor="let ticket of tickets">
+  <div *ngFor="let ticket of tickets; trackBy: trackBy">
     <app-ticket-card>
-      <span class="tickets-search-result__icon" icon>Add</span>
+      <span
+        class="tickets-search-result__icon"
+        icon
+      >Add</span>
     </app-ticket-card>
   </div>
 </div>

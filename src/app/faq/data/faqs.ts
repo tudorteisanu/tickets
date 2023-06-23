@@ -1,4 +1,4 @@
-import {FaqInterface} from "../types/faq.interface";
+import {FaqInterface} from '../types/faq.interface';
 
 export const FAQS: FaqInterface[] = [
   {
@@ -45,4 +45,4 @@ export const FAQS: FaqInterface[] = [
     question: 'Question #11',
     answer: 'Lorem ipsum dolor sit amet consectetur. Risus id dolor vel metus ornare amet. In faucibus pellentesque gravida platea augue et sit. Consequat pharetra odio lorem dignissim. Nam ut praesent dignissim eget pharetra morbi.'
   },
-]
+];

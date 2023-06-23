@@ -1,7 +1,6 @@
 import {Component, Input, Optional, Self, ViewEncapsulation} from '@angular/core';
-import {CommonModule, NgOptimizedImage} from "@angular/common";
-import {ControlValueAccessor, NgControl, ReactiveFormsModule} from "@angular/forms";
-
+import {CommonModule, NgOptimizedImage} from '@angular/common';
+import {ControlValueAccessor, NgControl, ReactiveFormsModule, ValidationErrors} from '@angular/forms';
 
 type ErrorMessage = Record<string, string>;
 
@@ -11,7 +10,7 @@ const DEFAULT_ERROR_MESSAGES: ErrorMessage = {
   minlength: 'Minimal length is {requiredLength} ({actualLength})',
   maxlength: 'Minimal length is {requiredLength} ({actualLength})'
 
-}
+};
 
 @Component({
   selector: 'app-form-input',
@@ -31,86 +30,89 @@ export class FormInputComponent implements ControlValueAccessor{
   @Input() customErrorMessages: Record<string, string>  = {};
   @Input() hideDetails = false;
 
-
-  get iconUrl(): string {
-    return `assets/icons/${this.icon}.svg`
-  }
-
-
   constructor(@Self() @Optional() private control: NgControl) {
-    if (this.control) {
+    if (this.control.valueAccessor) {
       this.control.valueAccessor = this;
     }
   }
 
-  get areMessageShown(): boolean {
-    return !!this.control?.touched || !!this.control?.dirty;
+  public get areMessageShown(): boolean {
+    return !!this.control.touched || !!this.control.dirty;
   }
 
-  get errors(): any {
-    return this.control?.errors;
+  public get iconUrl(): string {
+    return `assets/icons/${this.icon}.svg`;
   }
 
-  get errorMessages(): ErrorMessage {
-    return {
-      ...DEFAULT_ERROR_MESSAGES,
-      ...this.customErrorMessages
-    }
-  }
-
-  getError(key: string): string {
-    return this.errorMessages[key] || ''
-  }
-
-  get errorMessage(): string {
+  public get errorMessage(): string {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (!this.control || !this.errors || this.hideDetails) {
       return '';
     }
 
     return Object.entries(this.errors)
-    .map(([value, options]) => {
+      .map(([value, options]) => {
+        if (options && typeof options === 'object') {
+          return this.getError(value).replace(/{([^{}]*)}/g, (_, key) => {
+            return this.getPropertyByString(options, key) || '';
+          });
+        }
 
-      if (options && typeof options === 'object') {
-        return this.getError(value).replace(/{([^{}]*)}/g, (_, key) => {
-          return this.getPropertyByString(options, key) || '';
-        })
-      }
-
-      return this.getError(value);
-    })
-    .join(', '); 
+        return this.getError(value);
+      })
+      .join(', '); 
   }
 
-  getPropertyByString(object: object, property: string, sep = '.') {
+  private get errors(): ValidationErrors | null {
+    return this.control.errors;
+  }
+
+  private get errorMessages(): ErrorMessage {
+    return {
+      ...DEFAULT_ERROR_MESSAGES,
+      ...this.customErrorMessages
+    };
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
+  public onChange = (value: unknown): void => {};
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  public onTouched = (): void => {};
+
+  public writeValue(value: unknown): void {
+    this.onChange(value);
+  }
+
+  public registerOnChange(fn: (rating: unknown) => void): void {
+    this.onChange = fn;
+  }
+
+  public registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
+
+  public setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
+  
+  private getError(key: string): string {
+    return this.errorMessages[key] || '';
+  }
+
+  private getPropertyByString(object: object, property: string, sep = '.'): string {
     try {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       let translation: any = object;
 
       property.split(sep).map((key) => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         translation = translation[key];
       });
+
       return translation;
     } catch (e) {
       return property;
     }
-  }
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  onChange = (value: any) => {};
-
-  onTouched = () => {};
-  writeValue(value: any): void {
-    this.onChange(value);
-  }
-
-  registerOnChange(fn: (rating: number) => void): void {
-    this.onChange = fn;
-  }
-
-  registerOnTouched(fn: () => void): void {
-    this.onTouched = fn;
-  }
-
-  setDisabledState(isDisabled: boolean): void {
-    this.disabled = isDisabled;
   }
 }

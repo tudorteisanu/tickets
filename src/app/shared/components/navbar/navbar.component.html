@@ -7,21 +7,21 @@
     height="30"
     [routerLink]="homeUrl"
   >
-
   <ul class="navbar__links">
     <li
-      *ngFor="let item of links"
-      [routerLink]="item.url"
+      *ngFor="let item of links; trackBy: trackByIndex;"
       routerLinkActive="navbar__links--active"
-      [routerLinkActiveOptions]="{exact: true}">
+      [routerLink]="item.url"
+      [routerLinkActiveOptions]="{exact: true}"
+    >
       {{item.text}}
     </li>
   </ul>
   <div *ngIf="isLoggedIn(); else authButtons">
-      <span>{{ currentUser()?.firstName }}</span>
-      <button (click)="logout()">Logout</button>
+    <span>{{ currentUser()?.firstName }}</span>
+    <button (click)="logout()">Logout</button>
   </div>
   <ng-template #authButtons>
-    <app-auth-buttons  />
+    <app-auth-buttons />
   </ng-template>
 </nav>

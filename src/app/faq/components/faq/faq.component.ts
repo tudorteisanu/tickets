@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {FaqInterface} from "../../types/faq.interface";
-import {FAQS} from "../../data/faqs";
+import { FaqInterface } from '@/faq/types/faq.interface';
+import { FAQS } from '@/faq/data/faqs';
 
 @Component({
   selector: 'app-faq',
@@ -8,7 +8,17 @@ import {FAQS} from "../../data/faqs";
   styleUrls: ['./faq.component.scss']
 })
 export class FaqComponent {
-  get faqs(): FaqInterface[] {
+  id = 2;
+
+  constructor() {
+    console.log('data');
+  }
+
+  public get faqs(): FaqInterface[] {
     return FAQS;
+  }
+
+  public trackByIndex(index: number): number {
+    return index;
   }
 }

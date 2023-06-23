@@ -1,5 +1,4 @@
-import { AuthStateInterface } from "../types/authState.interface";
-
+import { AuthStateInterface } from '../types/auth-state.interface';
 
 export const authInitialState: AuthStateInterface = {
   isSubmitting: false,
@@ -8,4 +7,4 @@ export const authInitialState: AuthStateInterface = {
   isLoading: false,
   currentUser: null,
   validationErrors: null,
-}
+};

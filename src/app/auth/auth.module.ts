@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SignupComponent } from './components/signup/signup.component';
-import { RouterModule, Routes } from "@angular/router";
-import { FormInputComponent } from "../shared/components/form-input/form-input.component";
+import { RouterModule, Routes } from '@angular/router';
+import { FormInputComponent } from '../shared/components/form-input/form-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/reducers';
@@ -21,7 +21,7 @@ const routes: Routes = [
     component: LoginComponent
   },
 
-]
+];
 
 @NgModule({
   declarations: [

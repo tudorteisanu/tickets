@@ -1,4 +1,4 @@
-import {PageRoutes} from "./page-routes.enum";
+import {PageRoutes} from './page-routes.enum';
 
 export interface LinkInterface {
   url: PageRoutes;

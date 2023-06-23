@@ -1,4 +1,4 @@
-import { FormControl } from "@angular/forms";
+import { FormControl } from '@angular/forms';
 
 export interface SignUpInputInterface {
   firstName: FormControl<string | null>;
@@ -6,5 +6,4 @@ export interface SignUpInputInterface {
   password: FormControl<string | null>;
   passwordConfirmation: FormControl<string | null>;
   email: FormControl<string | null>;
-  terms: FormControl<boolean | null>;
 }
