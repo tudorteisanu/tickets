@@ -1,6 +1,5 @@
 import { Component, OnInit, Signal } from '@angular/core';
 import { FaqInterface } from '@/faq/types/faq.interface';
-import { FAQS } from '@/faq/data/faqs';
 import { Store } from '@ngrx/store';
 import { fetchFaqAction } from '@/faq/store/actions/fetch-faqs.action';
 import { faqsSelector, isLoadingsSelector } from '@/faq/store/faq.selectors';
