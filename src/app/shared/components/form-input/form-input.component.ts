@@ -30,14 +30,16 @@ export class FormInputComponent implements ControlValueAccessor{
   @Input() customErrorMessages: Record<string, string>  = {};
   @Input() hideDetails = false;
 
-  constructor(@Self() @Optional() private control: NgControl) {
-    if (this.control.valueAccessor) {
-      this.control.valueAccessor = this;
+  constructor(@Self() @Optional() private control?: NgControl) {
+    if (!this.control) {
+      return;
     }
+
+    this.control.valueAccessor = this;
   }
 
   public get areMessageShown(): boolean {
-    return !!this.control.touched || !!this.control.dirty;
+    return !!this.control && (this.control.touched || !!this.control.dirty);
   }
 
   public get iconUrl(): string {
@@ -64,6 +66,10 @@ export class FormInputComponent implements ControlValueAccessor{
   }
 
   private get errors(): ValidationErrors | null {
+    if (!this.control) {
+      return null;
+    }
+
     return this.control.errors;
   }
 
