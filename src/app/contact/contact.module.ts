@@ -8,6 +8,7 @@ import { reducers } from './store/reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { SubmitContactsEffect } from './store/effects/submit-contacts.effect';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoaderComponent } from '@/shared/components/loader/loader.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('contacts', reducers),
-    EffectsModule.forFeature([SubmitContactsEffect])
+    EffectsModule.forFeature([SubmitContactsEffect]),
+    LoaderComponent,
   ]
 })
 export class ContactModule { }

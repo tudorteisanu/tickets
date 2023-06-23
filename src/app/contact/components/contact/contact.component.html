@@ -37,7 +37,7 @@
         type="submit"
       >
         <ng-template #loading>
-          <div class="contact__form--loading"></div>
+          <app-loader />
         </ng-template>
         <ng-container *ngIf="!isSubmitting(); else loading;">
           <span>
