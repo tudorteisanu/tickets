@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
+import { TicketInterface } from '@/shared/types/ticket.interface';
 
 @Component({
   selector: 'app-ticket-card',
@@ -9,5 +10,5 @@ import {CommonModule, NgOptimizedImage} from '@angular/common';
   styleUrls: ['./ticket-card.component.scss']
 })
 export class TicketCardComponent {
-
+  @Input() ticket: TicketInterface;
 }

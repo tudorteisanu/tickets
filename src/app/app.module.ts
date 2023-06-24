@@ -1,7 +1,6 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
@@ -12,6 +11,11 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
+import { TicketsModule } from './tickets/tickets.module';
+import { FaqModule } from './faq/faq.module';
+import { AboutModule } from './about/about.module';
+import { ContactModule } from './contact/contact.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,7 @@ import { AuthModule } from './auth/auth.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    RouterModule,
     NavbarComponent,
     FooterComponent,
     StoreModule.forRoot({ router: routerReducer }),
@@ -33,7 +37,12 @@ import { AuthModule } from './auth/auth.module';
     }),
     StoreRouterConnectingModule.forRoot(),
     HttpClientModule,
-    AuthModule
+    AuthModule,
+    TicketsModule,
+    FaqModule,
+    AboutModule,
+    ContactModule,
+    HomeModule
   ],
   exports: [RouterModule],
   bootstrap: [AppComponent]

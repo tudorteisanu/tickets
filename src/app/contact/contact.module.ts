@@ -12,7 +12,7 @@ import { LoaderComponent } from '@/shared/components/loader/loader.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'contact',
     component: ContactComponent
   }
 ];
@@ -25,7 +25,7 @@ const routes: Routes = [
     CommonModule,
     FormInputComponent,
     ReactiveFormsModule,
-    RouterModule.forChild(routes),
+    RouterModule.forRoot(routes),
     StoreModule.forFeature('contacts', reducers),
     EffectsModule.forFeature([SubmitContactsEffect]),
     LoaderComponent,

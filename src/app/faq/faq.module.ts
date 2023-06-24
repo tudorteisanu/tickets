@@ -10,7 +10,7 @@ import { FetchFAQEffect } from './store/effects/fetch-faq.effect';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'faq',
     component: FaqComponent
   }
 ];
@@ -22,7 +22,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
+    RouterModule.forRoot(routes),
     NgOptimizedImage,
     StoreModule.forFeature('faq', reducers),
     EffectsModule.forFeature([FetchFAQEffect])

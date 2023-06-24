@@ -1,28 +1,38 @@
 <div class="ticket-card">
-    <h3 class="ticket-card__title">Card title</h3>
+  <h3 class="ticket-card__title">{{ticket.name}}</h3>
   <div class="ticket-card__content">
     <div class="ticket-card__row">
       <div>
-        <img ngSrc="assets/icons/calendar.svg" alt="" width="24" height="25">
+        <img
+          ngSrc="assets/icons/calendar.svg"
+          alt=""
+          width="24"
+          height="25"
+        >
       </div>
       <div class="ticket-card__row--content">
-        <span class="ticket-card__date">Date</span>
-        <span class="ticket-card__time">Time</span>
+        <span class="ticket-card__date">{{ticket.date}}</span>
+        <span class="ticket-card__time">{{ticket.time}}</span>
       </div>
     </div>
     <div class="ticket-card__row">
-      <img ngSrc="assets/icons/location.svg" alt="" width="24" height="25">
-      <div class="ticket-card__row--content" >
-        Location
+      <img
+        ngSrc="assets/icons/location.svg"
+        alt=""
+        width="24"
+        height="25"
+      >
+      <div class="ticket-card__row--content">
+        {{ticket.location}}
       </div>
     </div>
   </div>
   <div class="ticket-card__footer">
     <div class="ticket-card__footer--type">
-      Ticket type
+      {{ticket.type}}
     </div>
     <div class="ticket-card__footer--icon">
-     <ng-content select="[icon]"/>
+      <ng-content select="[icon]" />
     </div>
   </div>
 </div>

@@ -5,7 +5,7 @@ import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'about',
     component: AboutComponent
   }
 ];
@@ -16,7 +16,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
+    RouterModule.forRoot(routes),
     NgOptimizedImage
   ]
 })
