@@ -1,6 +1,4 @@
 import { isSubmittingSelector, errorMessageSelector } from '@/auth/store/auth.selectors';
-import { submitContactsAction } from '@/contact/store/actions/submit-contacts.action';
-import { ContactFormInterface } from '@/contact/types/contact-form.interface';
 import { CreateTicketFormInterface } from '@/create-ticket/types/create-ticket-form.interface';
 import { Component, OnInit, Signal } from '@angular/core';
 import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
