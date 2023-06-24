@@ -1,0 +1,81 @@
+<section class="create-ticket">
+    <div class="create-ticket__container">
+        <div *ngIf="errorMessage()">
+            <div class="create-ticket__error-message">
+                {{errorMessage()}}
+            </div>
+        </div>
+        <h1 class="create-ticket__title">
+            <span>
+                Create a ticket
+            </span>
+        </h1>
+        <form
+            class="form-textarea__form"
+            [formGroup]="createTicketForm"
+            (ngSubmit)="submit()"
+        >
+            <div class="create-ticket__form--row">
+                <p class="create-ticket__subtitle">
+                    Type and date
+                </p>
+                <div class="create-ticket__form--duration">
+                    <app-form-input
+                        label="Ticket type"
+                        formControlName="type"
+                    ></app-form-input>
+                    <app-form-input
+                        label="Ticket date"
+                        formControlName="date"
+                    ></app-form-input>
+                </div>
+            </div>
+            <div class="create-ticket__form--row">
+                <p class="create-ticket__subtitle">
+                    Event duration
+                </p>
+                <div class="create-ticket__form--duration">
+                    <app-form-input
+                        label="00:00"
+                        formControlName="startTime"
+                    ></app-form-input>
+                    <app-form-input
+                        label="00:00"
+                        formControlName="endTime"
+                    ></app-form-input>
+                </div>
+            </div>
+            <div class="create-ticket__form--row">
+                <p class="create-ticket__subtitle">
+                    Event title
+                </p>
+                <app-form-input
+                    label="Title"
+                    formControlName="title"
+                ></app-form-input>
+            </div>
+            <div class="create-ticket__form--row">
+                <p class="create-ticket__subtitle">
+                    Event description
+                </p>
+                <app-form-textarea
+                    formControlName="description"
+                    [rows]="4"
+                />
+            </div>
+            <button
+                class="create-ticket__form--submit"
+                type="submit"
+            >
+                <ng-template #loading>
+                    <app-loader />
+                </ng-template>
+                <ng-container *ngIf="!isSubmitting(); else loading;">
+                    <span>
+                        Create ticket
+                    </span>
+                </ng-container>
+            </button>
+        </form>
+    </div>
+</section>

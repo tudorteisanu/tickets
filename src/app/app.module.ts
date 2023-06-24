@@ -16,6 +16,7 @@ import { FaqModule } from './faq/faq.module';
 import { AboutModule } from './about/about.module';
 import { ContactModule } from './contact/contact.module';
 import { HomeModule } from './home/home.module';
+import { CreateTicketModule } from './create-ticket/create-ticket.module';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { HomeModule } from './home/home.module';
     FaqModule,
     AboutModule,
     ContactModule,
-    HomeModule
+    HomeModule,
+    CreateTicketModule,
   ],
   exports: [RouterModule],
   bootstrap: [AppComponent]

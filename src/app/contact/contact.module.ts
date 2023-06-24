@@ -9,6 +9,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { SubmitContactsEffect } from './store/effects/submit-contacts.effect';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoaderComponent } from '@/shared/components/loader/loader.component';
+import { FormTextareaComponent } from "../shared/components/form-textarea/form-textarea.component";
 
 const routes: Routes = [
   {
@@ -18,17 +19,18 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    ContactComponent
-  ],
-  imports: [
-    CommonModule,
-    FormInputComponent,
-    ReactiveFormsModule,
-    RouterModule.forRoot(routes),
-    StoreModule.forFeature('contacts', reducers),
-    EffectsModule.forFeature([SubmitContactsEffect]),
-    LoaderComponent,
-  ]
+    declarations: [
+        ContactComponent
+    ],
+    imports: [
+        CommonModule,
+        FormInputComponent,
+        ReactiveFormsModule,
+        RouterModule.forRoot(routes),
+        StoreModule.forFeature('contacts', reducers),
+        EffectsModule.forFeature([SubmitContactsEffect]),
+        LoaderComponent,
+        FormTextareaComponent
+    ]
 })
 export class ContactModule { }
