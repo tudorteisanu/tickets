@@ -9,7 +9,11 @@
     "test": "ng test",
     "lint": "npm run lint:ts && npm run lint:styles",
     "lint:styles": "npx stylelint '**/*.scss'",
-    "lint:ts": "ng lint"
+    "lint:ts": "ng lint",
+    "dev:ssr": "ng run tickets:serve-ssr",
+    "serve:ssr": "node dist/tickets/server/main.js",
+    "build:ssr": "ng build && ng run tickets:server",
+    "prerender": "ng run tickets:prerender"
   },
   "private": true,
   "dependencies": {
@@ -20,11 +24,14 @@
     "@angular/forms": "^16.0.0",
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
+    "@angular/platform-server": "^16.0.0",
     "@angular/router": "^16.0.0",
     "@ngrx/effects": "^16.0.1",
     "@ngrx/router-store": "^16.0.1",
     "@ngrx/store": "^16.0.1",
     "@ngrx/store-devtools": "^16.0.1",
+    "@nguniversal/express-engine": "^16.1.1",
+    "express": "^4.15.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
@@ -38,7 +45,10 @@
     "@angular-eslint/template-parser": "16.0.3",
     "@angular/cli": "~16.0.1",
     "@angular/compiler-cli": "^16.0.0",
+    "@nguniversal/builders": "^16.1.1",
+    "@types/express": "^4.17.0",
     "@types/jasmine": "~4.3.0",
+    "@types/node": "^14.15.0",
     "@typescript-eslint/eslint-plugin": "5.59.7",
     "@typescript-eslint/parser": "5.59.7",
     "eslint": "^8.40.0",
