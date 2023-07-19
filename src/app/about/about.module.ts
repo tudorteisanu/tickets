@@ -16,9 +16,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes, {
-    initialNavigation: 'enabledBlocking'
-}),
+    RouterModule.forRoot(routes),
     NgOptimizedImage
   ]
 })

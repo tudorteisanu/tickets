@@ -26,9 +26,7 @@ const routes: Routes = [
     CommonModule,
     FormInputComponent,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes, {
-    initialNavigation: 'enabledBlocking'
-}),
+    RouterModule.forRoot(routes),
     StoreModule.forFeature('contacts', reducers),
     EffectsModule.forFeature([SubmitContactsEffect]),
     LoaderComponent,

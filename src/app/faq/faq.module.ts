@@ -22,9 +22,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes, {
-    initialNavigation: 'enabledBlocking'
-}),
+    RouterModule.forRoot(routes),
     NgOptimizedImage,
     StoreModule.forFeature('faq', reducers),
     EffectsModule.forFeature([FetchFAQEffect])
