@@ -29,7 +29,6 @@ export class FormInputComponent implements ControlValueAccessor{
   @Input() readonly  = false;
   @Input() customErrorMessages: Record<string, string>  = {};
   @Input() hideDetails = false;
-  @Input() dataTest = '';
 
   constructor(@Self() @Optional() private control?: NgControl) {
     if (!this.control) {
