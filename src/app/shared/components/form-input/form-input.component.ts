@@ -8,7 +8,7 @@ const DEFAULT_ERROR_MESSAGES: ErrorMessage = {
   required: 'This is required field',
   email: 'Invalid email format',
   minlength: 'Minimal length is {requiredLength} ({actualLength})',
-  maxlength: 'Minimal length is {requiredLength} ({actualLength})'
+  maxlength: 'Maximal length is {requiredLength} ({actualLength})'
 
 };
 
@@ -29,6 +29,7 @@ export class FormInputComponent implements ControlValueAccessor{
   @Input() readonly  = false;
   @Input() customErrorMessages: Record<string, string>  = {};
   @Input() hideDetails = false;
+  @Input() dataTest = '';
 
   constructor(@Self() @Optional() private control?: NgControl) {
     if (!this.control) {
@@ -62,7 +63,7 @@ export class FormInputComponent implements ControlValueAccessor{
 
         return this.getError(value);
       })
-      .join(', '); 
+      .join(', ');
   }
 
   private get errors(): ValidationErrors | null {
@@ -101,7 +102,7 @@ export class FormInputComponent implements ControlValueAccessor{
   public setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
-  
+
   private getError(key: string): string {
     return this.errorMessages[key] || '';
   }

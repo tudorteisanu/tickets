@@ -20,11 +20,13 @@
       <app-form-input
         formControlName="email"
         label="Email address"
+        data-cy="email"
       />
       <app-form-input
         formControlName="password"
         label="Password"
         inputType="password"
+        data-cy="password"
       />
       <div class="login__form--remember-me">
         <fieldset>
@@ -38,6 +40,7 @@
       <button
         class="login__form--submit"
         type="submit"
+        data-cy="submit"
       >Log in</button>
     </form>
   </div>
