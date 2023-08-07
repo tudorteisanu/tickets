@@ -10,7 +10,7 @@ describe('Home page', () => {
     cy.get('[data-cy="logo"]').click();
 
     cy.location().should((location) => {
-      expect(location.pathname).to.eq('/asd')
+      expect(location.pathname).to.eq('/')
     })
   })
 })
